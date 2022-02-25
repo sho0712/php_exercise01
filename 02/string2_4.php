@@ -2,7 +2,7 @@
 
 $num = 9;
 #var_dump($num);
-$result = 4.5 - $unm;
+$result = $num/2;
 
 #var_dump($result);
 
