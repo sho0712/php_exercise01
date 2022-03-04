@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $total = $_POST['num1'] + $_POST['num2'] + $_POST['num3'];
     }
-    $total = h($total);
+    //$total = h($total);
 }
 ?>
 
@@ -61,6 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <?php
         if ($num1 && $num2 && $num3) {
+            $total = h($total);
             echo "合計値は {$total} です。";
         }
         ?>
