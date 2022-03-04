@@ -10,7 +10,7 @@ $select_stylist = '';
 
 // ここにコードを追記
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $select_stylist = $_POST['stylist'];
+    $select_stylist = $_POST['select_stylist'];
 }
 ?>
 
@@ -27,19 +27,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <h1>希望する美容師のランクを選んでください</h1>
     <form action="" method="post">
-        <select name="stylist">
+        <select name="select_stylist">
             <option hidden>選択してください</option>
-            <option value="Takashi">Takashi</option>
-            <option value="Ken">Ken</option>
-            <option value="Kyoutaro">Kyoutaro</option>
+            <option value="スタイリスト">スタイリスト</option>
+            <option value="ハイスタイリスト">ハイスタイリスト</option>
+            <option value="トップスタイリスト">トップスタイリスト</option>
         </select>
         <br>
         <input type="submit" value="送信">
     </form>
-    <?php if (!empty($stylists)) : ?>
-        <p><?= htmlspecialchars('あなたの担当は' . $select_stylist . 'です。', ENT_QUOTES, 'UTF-8') ?></p>
-    <?php endif; ?>
-
+    <?php
+    if ($select_stylist) {;
+        echo htmlspecialchars("あなたの担当は{$stylists[$select_stylist]}です"
+        ,ENT_QUOTES, 'UTF-8');
+        }
+    ?>
 </body>
 
 </html>
